@@ -14,6 +14,14 @@ class Calculator {
   customCalculation = (callback, ...args) => {
     callback(...args);
   };
+  minus = (a, b) => {
+    return a - b;
+  };
+  multiply = (a, b) => {
+    return a * b;
+  };
+  divide = (a, b) => {
+    return a / b;
+  };
 }
-
 export default Calculator;

@@ -4,11 +4,7 @@ const cal = new Calculator();
 
 describe('사칙연산 나눗셈 테스트', () => {
     test('0으로 나누면 에러가 발생한다.',()=>{
-        try{
-            cal.divide(4.0);
-        }catch(err){
-            expect(err).toEqual(new DivideZeroError());
-        }
+      expect(() => cal.divide(4, 0)).toThrowError(DivideZeroError);
     })
 });
 

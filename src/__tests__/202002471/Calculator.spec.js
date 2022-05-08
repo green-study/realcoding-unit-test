@@ -53,8 +53,9 @@ describe("가상 함수 테스트해보기", () => {
     });
     test("abs함수는 Math.abs를 호출한다.", () => {
       const cal = new Calculator();
-      const mockCallback = jest.fn();
-      expect(cal.abs(-3)).toEqual(3);
+      const spy = jest.spyOn(Math, 'abs');
+      cal.abs(0);
+      expect(spy).toBeCalledTimes(1);
     });
   });
   

@@ -1,24 +1,23 @@
 import Calculator from "../../js/calculator/Calculator";
 
 beforeAll(() => {
-    console.log("모든 테스트를 실행하기 전 한번만 실행된다.");
+  console.log("모든 테스트를 실행하기 전 한번만 실행된다.");
 });
 
 afterAll(() => {
-    console.log("모든 테스트가 완료된 후 한번만 실행된다.");
+  console.log("모든 테스트가 완료된 후 한번만 실행된다.");
 });
 
 beforeEach(() => {
-    console.log("각 테스트를 실행하기 전 실행한다.");
+  console.log("각 테스트를 실행하기 전 실행한다.");
 });
 
 afterEach(() => {
-    console.log("각 테스트가 완료된 후 실행된다.");
+  console.log("각 테스트가 완료된 후 실행된다.");
 });
 
 const cal = new Calculator();
 describe("음수 양수 판단", () => {
-  
     test("isNegative에 7을 넣으면 false를 반환한다.", () => {
       expect(cal.isNegative(7)).toBeFalsy();
     });
@@ -31,14 +30,22 @@ describe("음수 양수 판단", () => {
 });
 
 describe("Date 클래스 판단하기", () => {
-  
-    test("getDate를 하면 Date객체가 나온다.", () => {
-      expect(cal.getDate()).toBeInstanceOf(Date);
-    });
-    
+  test("getDate를 하면 Date객체가 나온다.", () => {
+    expect(cal.getDate()).toBeInstanceOf(Date);
+  });
+});
+
+describe("abs에 대한 테스트 코드", () => {
+  test("5의 절대값은 5이다.", () => {
+    expect(cal.abs(5)).toEqual(5);
+  });
+  test("-2의 절대값은 2이다.", () => {
+    expect(cal.abs(-2)).toEqual(2);
+  });
 });
 
 describe("가상 함수 테스트해보기", () => {
+
     test("customCalculation는 전달 된 함수를 호출시킨다.", () => {
       const cal = new Calculator();
       const mockCallback = jest.fn();
@@ -57,5 +64,5 @@ describe("가상 함수 테스트해보기", () => {
       cal.abs(0);
       expect(spy).toBeCalledTimes(1);
     });
-  });
-  
+
+});

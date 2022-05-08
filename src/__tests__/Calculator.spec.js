@@ -1,6 +1,6 @@
 import Calculator from "../js/calculator/Calculator";
 
-describe("사직연산 덧셈 테스트.", () => {
+describe("사칙연산 덧셈 테스트.", () => {
   let a = 5;
   let b = 3;
 

@@ -3,15 +3,12 @@ import Calculator from "../../js/calculator/Calculator";
 beforeAll(() => {
   console.log("모든 테스트를 실행하기 전 한번만 실행된다.");
 });
-
 afterAll(() => {
   console.log("모든 테스트가 완료된 후 한번만 실행된다.");
 });
-
 beforeEach(() => {
   console.log("각 테스트를 실행하기 전 실행한다.");
 });
-
 afterEach(() => {
   console.log("각 테스트가 완료된 후 실행된다.");
 });
@@ -45,24 +42,19 @@ describe("abs에 대한 테스트 코드", () => {
 });
 
 describe("가상 함수 테스트해보기", () => {
-
-    test("customCalculation는 전달 된 함수를 호출시킨다.", () => {
-      const cal = new Calculator();
-      const mockCallback = jest.fn();
-      cal.customCalculation(mockCallback, ["a", "b"]);
-      expect(mockCallback).toHaveBeenCalled();
-    });
-    test("customCalculation에 함수와 1, 2, 3인자를 전달하면, 전달 된 함수가 인자 1, 2, 3을 받아 호출한다.", () => {
-      const cal = new Calculator();
-      const mockCallback = jest.fn();
-      cal.customCalculation(mockCallback, [1, 2, 3]);
-      expect(mockCallback).toHaveBeenCalledWith([1, 2, 3]);
-    });
-    test("abs함수는 Math.abs를 호출한다.", () => {
-      const cal = new Calculator();
-      const spy = jest.spyOn(Math, 'abs');
-      cal.abs(0);
-      expect(spy).toBeCalledTimes(1);
-    });
-
+  test("customCalculation는 전달 된 함수를 호출시킨다.", () => {
+    const mockCallback = jest.fn();
+    cal.customCalculation(mockCallback, ["a", "b"]);
+    expect(mockCallback).toHaveBeenCalled();
+  });
+  test("customCalculation에 함수와 1, 2, 3인자를 전달하면, 전달 된 함수가 인자 1, 2, 3을 받아 호출한다.", () => {
+    const mockCallback = jest.fn();
+    cal.customCalculation(mockCallback, [1, 2, 3]);
+    expect(mockCallback).toHaveBeenCalledWith([1, 2, 3]);
+  });
+  test("abs함수는 Math.abs를 호출한다.", () => {
+    const mockCallback = jest.spyOn(Math, "abs");
+    let result = cal.abs(-3);
+    expect(mockCallback).toBeCalledTimes(1);
+  });
 });
